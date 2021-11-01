@@ -21,7 +21,7 @@ fi
 /usr/local/cpanel/bin/checkphpini > /dev/null 2>&1
 /usr/local/cpanel/bin/install_php_inis > /dev/null 2>&1
 echo -e "\e[1;33m Auto SSL Installation Started ... \e[0m"
-/usr/local/cpanel/scripts/install_lets_encrypt_autossl_provider  > /dev/null 2>&1
+/usr/local/cpanel/scripts/install_lets_encrypt_autossl_provider > /dev/null 2>&1
 echo -e "\e[1;32m * Auto SSL Installation Done \e[0m"
 echo -e "\e[1;33m Softaculous Installation Started ... \e[0m"
 wget -N http://files.softaculous.com/install.sh
