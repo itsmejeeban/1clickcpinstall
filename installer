@@ -5,13 +5,13 @@ then
     echo -e "\e[1;32m * cPanel Already Installed \e[0m"
 else
     echo -e "\e[1;33m * cPanel Installation Started It Take 5-15 Minutes \e[0m"
-    hostnamectl set-hostname server.yourdomain.com
-    yum remove NetworkManager -y
+    hostnamectl set-hostname server.yourdomain.com > /dev/null 2>&1
+    yum remove NetworkManager -y > /dev/null 2>&1
     cd /
     cd /var
     mkdir cpanel
     cd cpanel
-    wget raw.githubusercontent.com/itsmejeeban/1clickcpinstall/main/cpanel.config
+    wget raw.githubusercontent.com/itsmejeeban/1clickcpinstall/main/cpanel.config > /dev/null 2>&1
     cd /home
     curl -o latest -L https://securedownloads.cpanel.net/latest
     sh latest
