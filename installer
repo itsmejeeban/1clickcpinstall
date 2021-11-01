@@ -7,11 +7,19 @@ else
     echo -e "\e[1;33m * cPanel Installation Started It Take 5-15 Minutes \e[0m"
     hostnamectl set-hostname server.yourdomain.com
     yum remove NetworkManager -y
+    cd /
+    cd /var
+    mkdir cpanel
+    cd cpanel
+    wget raw.githubusercontent.com/itsmejeeban/1clickcpinstall/main/cpanel.config
     cd /home
     curl -o latest -L https://securedownloads.cpanel.net/latest
     sh latest
     echo -e "\e[1;31m * cPanel Installed Sucessfully \e[0m"
 fi
+/usr/local/cpanel/whostmgr/bin/whostmgr2 –updatetweaksettings
+/usr/local/cpanel/bin/checkphpini
+/usr/local/cpanel/bin/install_php_inis
 echo -e "\e[1;33m Auto SSL Installation Started ... \e[0m"
 /usr/local/cpanel/scripts/install_lets_encrypt_autossl_provider  > /dev/null 2>&1
 echo -e "\e[1;32m * Auto SSL Installation Done \e[0m"
