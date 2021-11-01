@@ -7,6 +7,11 @@ else
     echo -e "\e[1;31m * cPanel Installation Started It Take 5-15 Minutes \e[0m"
     hostnamectl set-hostname server.yourdomain.com
     yum remove NetworkManager -y
-    cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
-    echo -e "\e[1;31m * cPanel Installed By Jeebanhost cPanel Installer \e[0m"
+    cd /home
+    curl -o latest -L https://securedownloads.cpanel.net/latest
+    sh latest
+    echo -e "\e[1;31m * cPanel Installed Sucessfully \e[0m"
 fi
+echo -e "\e[1;31m * Auto SSL Installation Started \e[0m"
+/usr/local/cpanel/scripts/install_lets_encrypt_autossl_provider  > /dev/null 2>&1
+echo -e "\e[1;31m * Auto SSL Installation Done \e[0m"
