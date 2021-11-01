@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -d /usr/local/cpanel ]]
+then
+    echo -e "\e[1;32m * cPanel Already Installed \e[0m"
+else
+    echo -e "\e[1;31m * cPanel Installation Started \e[0m"
+    hostnamectl set-hostname server.yourdomain.com
+    yum remove NetworkManager -y
+    cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
+fi
